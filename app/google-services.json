@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "687278509214",
+    "firebase_url": "https://comsense-178908.firebaseio.com",
+    "project_id": "comsense-178908",
+    "storage_bucket": "comsense-178908.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:687278509214:android:61344172921fe65e",
+        "android_client_info": {
+          "package_name": "com.comsense.comsense"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "687278509214-g70qed4hjlqs815hlngu1apmt390jvgv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBug1RObHUa_GNRdYIe_1Hv01hLylNt72E"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,2 @@
+configurations.maybeCreate("default")
+artifacts.add("default", file('ibm-mobile-push-android-sdk-plugin-inapp-3.6.6.3.aar'))

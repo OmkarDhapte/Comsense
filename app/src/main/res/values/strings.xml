@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Comsense</string>
+    <string name="title_activity_about_us">About Us</string>
+    <string name="title_activity_services">Services</string>
+    <string name="title_activity_contact_us">Contact Us</string>
+    <string name="title_activity_blog">Blogs</string>
+
+    <string name="expandable_layout_type">demoLayour</string>
+</resources>

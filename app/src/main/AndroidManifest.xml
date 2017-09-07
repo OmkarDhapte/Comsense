@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.comsense.comsense">
+
+    <permission
+        android:name="com.comsense.comsense.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.comsense.comsense.permission.C2D_MESSAGE" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <!-- VIBRATE is required for notification configuration -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <!-- If you want to use the dial action in the notification details page, add the following information -->
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <!-- ACCESS_FINE_LOCATION is optional. It is only required if location services needs to use GPS location -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- ACCESS_COARSE_LOCATION is optional. It is only required if location services needs to use network location -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- BLUETOOTH is optional. It is only required if iBeacons are supported -->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <!-- BLUETOOTH_ADMIN is optional. It is only required if iBeacons are supported -->
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+
+    <!-- If you plan to publish your app in the Google Play store and want to allow non-phone devices to download your app, also include: -->
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" /> <!--  -->
+    <!--
+         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but you must specify either coarse or fine
+         location permissions for the 'MyLocation' functionality. 
+    -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <application
+        android:name=".ComsenseApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".AboutUsActivity"
+            android:label="@string/title_activity_about_us"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.comsense.comsense.MainActivity" />
+        </activity>
+        <activity
+            android:name=".ServicesActivity"
+            android:label="@string/title_activity_services"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.comsense.comsense.MainActivity" />
+        </activity>
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/. 
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity
+            android:name=".ContactUsActivity"
+            android:label="@string/title_activity_contact_us"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.comsense.comsense.MainActivity" />
+        </activity>
+
+        <provider
+            android:name="com.ibm.mce.sdk.db.Provider"
+            android:authorities="com.comsense.comsense.MCE_PROVIDER"
+            android:exported="false" />
+
+        <receiver android:name="com.ibm.mce.sdk.gcm.GcmBroadcastReceiver">
+            <intent-filter android:permission="com.google.android.c2dm.permission.SEND">
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+
+                <category android:name="com.comsense.comsense" />
+            </intent-filter>
+            <intent-filter android:permission="com.google.android.c2dm.permission.SEND">
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+
+                <category android:name="com.comsense.comsense" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".mce.MyMceBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.ibm.mce.sdk.NOTIFIER" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.ibm.mce.sdk.notification.NotifActionReceiver" />
+        <receiver android:name="com.ibm.mce.sdk.wi.AlarmReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.LOCALE_CHANGED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REPLACED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name="com.ibm.mce.sdk.gcm.GcmIntentService" />
+        <service android:name="com.ibm.mce.sdk.events.EventsAlarmListener" />
+        <service android:name="com.ibm.mce.sdk.attributes.AttributesQueueConsumer" />
+        <service android:name="com.ibm.mce.sdk.registration.RegistrationIntentService" />
+        <service android:name="com.ibm.mce.sdk.registration.PhoneHomeIntentService" />
+
+        <!--
+        Add the session tracking service if you want sessions to be timeout automatically,
+        even if the application is in the background.
+        This service is scheduled to check whether the current session timed out <session duration> + 1 minute
+        after the application was sent to the background.
+        -->
+        <service android:name="com.ibm.mce.sdk.session.SessionTrackingIntentService" />
+
+        <activity
+            android:name=".BlogActivity"
+            android:label="@string/title_activity_blog"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.comsense.comsense.MainActivity" />
+        </activity>
+    </application>
+
+</manifest>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.comsense.comsense.ServicesActivity"
+    tools:showIn="@layout/activity_services">
+
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Marketing Analytics"
+        android:textColor="@color/black"
+        android:textSize="14dp" />
+
+    <ImageView
+        android:id="@+id/marketingAnalytics"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@id/text1"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="15dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/marketing_analytics" />
+
+    <TextView
+        android:id="@+id/txtText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/marketingAnalytics"
+        android:text="Marketing Automation Experties"
+        android:textColor="@color/black"
+        android:textSize="14dp" />
+
+    <ImageView
+        android:id="@+id/automationExperties"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@id/txtText2"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="15dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/marketing_automation" />
+    <WebView
+        android:id="@+id/webView1"
+        android:layout_below="@id/automationExperties"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <ImageView
+        android:id="@+id/marketingAsService"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@id/webView1"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/marketing_as_service" />
+
+    <WebView
+        android:id="@+id/webView2"
+        android:layout_below="@id/marketingAsService"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <ImageView
+        android:id="@+id/visualDesign"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@id/webView2"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/visual_design" />
+    <WebView
+        android:id="@+id/webView3"
+        android:layout_below="@id/visualDesign"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <ImageView
+        android:id="@+id/marketingAutomation"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@id/webView3"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/marketing_automation_1" />
+    <WebView
+        android:id="@+id/webView4"
+        android:layout_below="@id/marketingAutomation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <ImageView
+        android:id="@+id/tehnologyService"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@id/webView4"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/technology_services" />
+
+    <TextView
+        android:id="@+id/txtText3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Technology Service"
+        android:layout_below="@id/tehnologyService"
+        android:textColor="@color/black"
+        android:textSize="14dp" />
+</RelativeLayout>
